@@ -18,16 +18,15 @@ class CounterTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testDecodeCounter() throws {
+        let counterArray = PreviewBuilder.getCounter()
+        
+        XCTAssertTrue(counterArray.count == 1)
+        
+        let counter = counterArray.first
+        XCTAssertTrue(counter?.organizationUnitID == 30194)
+        XCTAssertTrue(counter?.personCount == 15)
+        XCTAssertTrue(counter?.maxPersonCount == 120)
     }
 
 }
