@@ -11,7 +11,7 @@ import SwiftUI
 struct CounterApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(vm: CounterVM(service: CounterService(for: "/api/gates/counter?organizationUnitIds=")))
+            ContentView(vm: CounterVM(service: CounterService(for: "/api/gates/counter")))
         }
     }
 }

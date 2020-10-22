@@ -10,39 +10,52 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var vm: CounterVM
     var body: some View {
-        
-        HStack {
-            VStack (alignment: .leading) {
-                Text("Bad Forstenrieder Park\nHallenbad")
-                    .font(.title3)
-                    .bold()
-                HStack {
-                        Text("\(vm.counter?.first?.personCount ?? 0)")
-                            .font(.title)
-                            .foregroundColor(.green)
-                            .bold()
-                            
-                        
-                        Text("\(vm.counter?.first?.maxPersonCount ?? 0)")
-                            .font(.title)
-                            .foregroundColor(.red)
-                            .bold()
+        NavigationView {
+            ScrollView {
+                LazyVStack {
+                    ForEach(vm.counters ?? [], id: \.self) { element in
+                        GroupBox {
+                            HStack {
+                                VStack (alignment: .leading) {
+                                    Text(Pools.getTitle(for: String(element.organizationUnitID!)))
+                                        .font(.system(size:20))
+                                        .bold()
+                                    HStack(spacing:5) {
+                                        Text("\(element.personCount ?? 0)")
+                                            .font(.system(size:25))
+                                            .foregroundColor(.green)
+                                            .bold()
+                                        Text("/")
+                                            .font(.system(size:20))
+                                        //.bold()
+                                        
+                                        Text("\(element.maxPersonCount ?? 0)")
+                                            .font(.system(size:25))
+                                            .foregroundColor(.red)
+                                            .bold()
+                                    }
+                                }
+                                Spacer()
+                                ZStack {
+                                    Ring(percent: .constant(vm.getPercents(for: element)), thickness: 10)
+                                        .padding()
+                                    Text("\(vm.getPercentsLabel(for: element))%")
+                                        .font(.title3)
+                                        .foregroundColor(.green)
+                                        .bold()
+                                    
+                                }
+                                .frame(width: 100, height: 100, alignment: .center)
+                            }
+                        }.padding(.horizontal)
+                    }
                 }
             }
-            Spacer()
-            ZStack {
-                Ring(percent: .constant(vm.getPercents()))
-                    .padding()
-                Text("\(vm.getPercentsLabel())%")
-                    .font(.title3)
-                    .foregroundColor(.green)
-                    .bold()
-                
-            }
-            .frame(width: 100, height: 100, alignment: .center)
-        }.padding()
-        
-       
+            .navigationTitle("Pools in Munich")
+        }
+        .onAppear {
+            vm.onAppear()
+        }
         
     }
 }

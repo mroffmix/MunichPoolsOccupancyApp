@@ -10,7 +10,7 @@ import Combine
 
 
 protocol WebServiceType {
-    func get<T: Codable>(id: String) -> AnyPublisher<T, Error>
+    func get<T: Codable>(ids: [String]) -> AnyPublisher<T, Error>
 }
 
 
@@ -20,16 +20,18 @@ class CounterService: WebServiceType {
     private let decoder = JSONDecoder()
     init(for path:String) {
         /* https://functions.api.ticos-systems.cloud/api/gates/counter?organizationUnitIds=30194
-        */
+         */
         
         self.serviceUrl = "https://functions.api.ticos-systems.cloud" + path
-        // "/api/gates/counter?organizationUnitIds="
+        // "/api/gates/counter"
         decoder.dateDecodingStrategy = .iso8601
         
     }
     
-    func get<T>(id: String) -> AnyPublisher<T, Error> where T : Decodable, T : Encodable {
-        guard let url = URL(string: serviceUrl + id) else {
+    func get<T>(ids: [String]) -> AnyPublisher<T, Error> where T : Decodable, T : Encodable {
+        let params = "?organizationUnitIds=" + ids.joined(separator: "&organizationUnitIds=")
+        //?organizationUnitIds=
+        guard let url = URL(string: serviceUrl + params) else {
             let error = URLError(.badURL)
             return Fail(error: error).eraseToAnyPublisher()
         }
@@ -38,13 +40,13 @@ class CounterService: WebServiceType {
         
         request.httpMethod = "GET"
         authHandler.setHeaders(to: &request)
-       // request.addValue("application/json", forHTTPHeaderField: "Accept")
-       // request.addValue("application/json", forHTTPHeaderField: "content-type")
+        // request.addValue("application/json", forHTTPHeaderField: "Accept")
+        // request.addValue("application/json", forHTTPHeaderField: "content-type")
         
         return URLSession.shared.dataTaskPublisher(for: request)
             .map() {
-                    $0.data
-                }
+                $0.data
+            }
             .decode(type: T.self, decoder: decoder)
             .catch { error in
                 Fail(error: error).eraseToAnyPublisher()

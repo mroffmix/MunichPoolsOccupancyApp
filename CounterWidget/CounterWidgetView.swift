@@ -19,21 +19,21 @@ struct CounterWidgetView: View {
                     .font(.title3)
                     .bold()
                 HStack {
-                        Text("\(vm.counter?.first?.personCount ?? 0)")
-                            .font(.title)
-                            .foregroundColor(.green)
-                            .bold()
-                            
-                        
-                        Text("\(vm.counter?.first?.maxPersonCount ?? 0)")
-                            .font(.title)
-                            .foregroundColor(.red)
-                            .bold()
+                    Text("\(vm.counters?.first?.personCount ?? 0)")
+                        .font(.title)
+                        .foregroundColor(.green)
+                        .bold()
+                    
+                    
+                    Text("\(vm.counters?.first?.maxPersonCount ?? 0)")
+                        .font(.title)
+                        .foregroundColor(.red)
+                        .bold()
                 }
             }
             Spacer()
             ZStack {
-                Ring(percent: .constant(vm.getPercents()))
+                Ring(percent: .constant(vm.getPercents()), thickness: 5)
                     .padding()
                 Text("\(vm.getPercentsLabel())%")
                     .font(.title3)
@@ -43,7 +43,7 @@ struct CounterWidgetView: View {
             }
             .frame(width: 100, height: 100, alignment: .center)
         }.padding()
-
+        
     }
 }
 
@@ -52,10 +52,10 @@ struct CounterWidgetView_Previews: PreviewProvider {
         Group {
             CounterWidgetView(vm: WidgetCounterVM(PreviewBuilder.getCounter()))
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
-
+            
             CounterWidgetView(vm: WidgetCounterVM(PreviewBuilder.getCounter()))
                 .previewContext(WidgetPreviewContext(family: .systemLarge))
-
+            
         }
     }
 }

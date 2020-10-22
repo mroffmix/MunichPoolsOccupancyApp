@@ -16,7 +16,7 @@ struct SmallCounterWidgetView: View {
         VStack {
             
             ZStack {
-                Ring(percent: .constant(vm.getPercents()))
+                Ring(percent: .constant(vm.getPercents()), thickness: 5)
                     .padding()
                 Text("\(vm.getPercentsLabel())%")
                     .font(.body)
@@ -31,15 +31,15 @@ struct SmallCounterWidgetView: View {
                 .lineLimit(3)
                 .font(.system(size: 13))
         }//.padding()
-
+        
     }
 }
 
 struct SmallCounterWidgetView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-        SmallCounterWidgetView(vm: WidgetCounterVM(PreviewBuilder.getCounter()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+            SmallCounterWidgetView(vm: WidgetCounterVM(PreviewBuilder.getCounter()))
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
         }
     }
 }
