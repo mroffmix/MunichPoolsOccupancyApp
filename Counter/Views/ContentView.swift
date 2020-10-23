@@ -23,7 +23,7 @@ struct ContentView: View {
                                     HStack(spacing:5) {
                                         Text("\(element.personCount ?? 0)")
                                             .font(.system(size:25))
-                                            .foregroundColor(.green)
+                                            .foregroundColor(.red)
                                             .bold()
                                         Text("/")
                                             .font(.system(size:20))
@@ -31,7 +31,7 @@ struct ContentView: View {
                                         
                                         Text("\(element.maxPersonCount ?? 0)")
                                             .font(.system(size:25))
-                                            .foregroundColor(.red)
+                                            .foregroundColor(.green)
                                             .bold()
                                     }
                                 }
@@ -41,7 +41,7 @@ struct ContentView: View {
                                         .padding()
                                     Text("\(vm.getPercentsLabel(for: element))%")
                                         .font(.title3)
-                                        .foregroundColor(.green)
+                                        .foregroundColor(.red)
                                         .bold()
                                     
                                 }

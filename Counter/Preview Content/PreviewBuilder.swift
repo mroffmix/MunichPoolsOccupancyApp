@@ -30,5 +30,5 @@ struct PreviewBuilder {
     private static let response = """
     [{"organizationUnitId":30194,"personCount":15,"maxPersonCount":120}]
     """
-
+    
 }

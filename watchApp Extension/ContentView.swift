@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var vm: CounterVM
-    private let placeholder = CounterResponseElement(organizationUnitID: 0, personCount: 0, maxPersonCount: 0)
+    private let placeholder = CounterResponseElement(organizationUnitID: 0, personCount: 1, maxPersonCount: 1)
     
     var body: some View {
         VStack (alignment: .center, spacing: 5) {
@@ -19,14 +19,13 @@ struct ContentView: View {
                 .lineLimit(3)
                 .font(.system(size: 12))
             Spacer().frame(height: 5, alignment: .center)
-            
             ZStack {
                 Ring(percent: .constant(vm.getPercents(for: vm.counters?.first ?? placeholder)), thickness: 8)
                     .padding()
                     .animation(.easeInOut)
                 Text("\(vm.getPercentsLabel(for: vm.counters?.first ?? placeholder))%")
                     .font(.system(size: 20))
-                    .foregroundColor(.green)
+                    .foregroundColor(.red)
                     .bold()
                 
             }

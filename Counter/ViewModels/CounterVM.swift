@@ -51,9 +51,7 @@ class CounterVM: PCounterVM, ObservableObject {
     }
     
     func getPercents(for element: CounterResponseElement) -> Double {
-        
-        return Double((element.personCount ?? 0) * 100 / (element.maxPersonCount ?? 0))
-        //max*current/100
+        return Double((element.personCount ?? 0) * 100 / (element.maxPersonCount ?? 1))
     }
     
 }

@@ -12,15 +12,14 @@ struct RingShape: Shape {
     var radius: CGFloat = 100
     
     var animatableData: Double{
-        get{
+        get {
             return percent
         }
-        
-        set{
+        set {
             percent = newValue
         }
     }
-
+    
     
     func path(in rect: CGRect) -> Path {
         let width = rect.width

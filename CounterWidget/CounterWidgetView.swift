@@ -37,7 +37,7 @@ struct CounterWidgetView: View {
                     .padding()
                 Text("\(vm.getPercentsLabel())%")
                     .font(.title3)
-                    .foregroundColor(.green)
+                    .foregroundColor(.red)
                     .bold()
                 
             }

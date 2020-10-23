@@ -12,15 +12,13 @@ struct SmallCounterWidgetView: View {
     
     @ObservedObject var vm: WidgetCounterVM
     var body: some View {
-        
         VStack {
-            
             ZStack {
                 Ring(percent: .constant(vm.getPercents()), thickness: 5)
                     .padding()
                 Text("\(vm.getPercentsLabel())%")
                     .font(.body)
-                    .foregroundColor(.green)
+                    .foregroundColor(.red)
                     .bold()
                 
             }
@@ -30,8 +28,7 @@ struct SmallCounterWidgetView: View {
                 .multilineTextAlignment(.center)
                 .lineLimit(3)
                 .font(.system(size: 13))
-        }//.padding()
-        
+        }
     }
 }
 

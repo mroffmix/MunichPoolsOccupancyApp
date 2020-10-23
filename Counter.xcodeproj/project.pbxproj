@@ -11,6 +11,7 @@
 		0975FDE82541D733003B61EC /* Pools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975FDE72541D733003B61EC /* Pools.swift */; };
 		0975FDEF2541D752003B61EC /* Pools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975FDE72541D733003B61EC /* Pools.swift */; };
 		0975FDF62541D753003B61EC /* Pools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975FDE72541D733003B61EC /* Pools.swift */; };
+		0975FE052542C0CF003B61EC /* PoolComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0975FE042542C0CF003B61EC /* PoolComplication.swift */; };
 		098B0F5A2541722E00FB4C38 /* CounterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B0F592541722E00FB4C38 /* CounterApp.swift */; };
 		098B0F5C2541722E00FB4C38 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B0F5B2541722E00FB4C38 /* ContentView.swift */; };
 		098B0F5E2541723100FB4C38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 098B0F5D2541723100FB4C38 /* Assets.xcassets */; };
@@ -136,6 +137,7 @@
 
 /* Begin PBXFileReference section */
 		0975FDE72541D733003B61EC /* Pools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pools.swift; sourceTree = "<group>"; };
+		0975FE042542C0CF003B61EC /* PoolComplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolComplication.swift; sourceTree = "<group>"; };
 		098B0F562541722E00FB4C38 /* Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Counter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		098B0F592541722E00FB4C38 /* CounterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterApp.swift; sourceTree = "<group>"; };
 		098B0F5B2541722E00FB4C38 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -220,6 +222,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0975FE032542C0A8003B61EC /* Complications */ = {
+			isa = PBXGroup;
+			children = (
+				0975FE042542C0CF003B61EC /* PoolComplication.swift */,
+			);
+			path = Complications;
+			sourceTree = "<group>";
+		};
 		098B0F4D2541722E00FB4C38 = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +369,7 @@
 		09D301B62541B5F7005E0BC7 /* watchApp Extension */ = {
 			isa = PBXGroup;
 			children = (
+				0975FE032542C0A8003B61EC /* Complications */,
 				09D301B72541B5F7005E0BC7 /* CounterApp.swift */,
 				09D301B92541B5F7005E0BC7 /* ContentView.swift */,
 				09D301BB2541B5F7005E0BC7 /* NotificationController.swift */,
@@ -669,6 +680,7 @@
 				09D301B82541B5F7005E0BC7 /* CounterApp.swift in Sources */,
 				09D301BE2541B5F7005E0BC7 /* NotificationView.swift in Sources */,
 				0975FDEF2541D752003B61EC /* Pools.swift in Sources */,
+				0975FE052542C0CF003B61EC /* PoolComplication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import SwiftUI
 struct Ring: View {
     @Binding var percent: Double
     @State var thickness: CGFloat
-    var gradientColors =  [Color.green]
+    var gradientColors =  [Color.red]
     
     var body: some View {
         return drawRing()
@@ -23,7 +23,7 @@ struct Ring: View {
             
             RingShape(percent: 100)
                 .stroke(style: StrokeStyle(lineWidth: self.thickness))
-                .fill(Color.red)
+                .fill(Color.green)
                 .animation(.easeInOut)
             
             RingShape(percent: self.percent)
